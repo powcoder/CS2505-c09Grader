@@ -1,0 +1,57 @@
+README for C08 in CS 2505 Spring 2019
+--------------------------------------------------------------------------------
+The tarball you just extracted should contain three files:
+
+   README               this file
+   gradec09.sh          grading script we will use to test your submission
+   c09Files.tar         tar file containing test files:
+      c09driver.c	      test driver (read the comments!)
+      Rational.h	      header file for assigned function (do not modify!)
+      TestRational.h	   header file for testing/grading code (do not modify!)
+      TestRational.o	   64-bit implementation of the testing/grading code
+
+We suggest you do your development work in a different directory than where you
+unpacked this tar file.  Create a develpement directory and unpack c09Files.tar
+into that directory (leave a copy in the same directory as gradec09.sh).
+
+Create Rational.c (you can just copy the function declarations from Rational.h).
+
+--------------------------------------------------------------------------------
+Using the test files in your development work:
+--------------------------------------------------------------------------------
+Compile with the command:
+
+   gcc -o c09 -std=c11 -Wall -W -ggdb3 c09driver.c Rational.c TestRational.o
+
+Note:  you will get lots of warning messages about things like unused parameters
+       until you have implemented the functions in Rational.c
+
+Run c09; see the header comment in c09driver.c for execution options.
+
+Examine the various log files created by c09 to see how you're doing.  Barring
+a runtime crash, a score will be shown at the end of each log file.
+
+By default, c09driver.c will run tests for ALL functions.  There is a separate
+block of code in c09driver.c for performing each test.  Each of those code
+blocks is bracked by a #ifdef/#endif construct; if you comment out certain lines
+near the beginning of c09driver.c, you can disable the tests you do not want to
+run.  See the comments in c09driver.c.
+
+--------------------------------------------------------------------------------
+Using the grading script to verify your final submission:
+--------------------------------------------------------------------------------
+To use the grading script, copy your Rational.c file into the directory with
+gradec09.sh.  We recommend naming your source file using your PID; e.g., wmcquain.c.
+
+Execution options for the grading script:
+
+   gradec09.sh <name of your source file>
+      Create a build directory
+      Copies your source file into ./build and renames it Rational.c
+      Unpacks c09Files.tar into ./build
+      Tries to build an executable in ./build
+      Runs the executable to perform testing
+      Writes a summary of the testing to PID.txt
+      
+   gradec09.sh -clean
+      Deletes all the files created by a previous run of the gradec02.sh
